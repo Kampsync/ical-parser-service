@@ -4,7 +4,7 @@ import ical from 'node-ical';
 const app = express();
 app.use(express.json({ limit: '5mb' }));
 
-app.post('/parse', async (req, res) => {
+app.post('/', async (req, res) => {
   const { ical_data } = req.body;
   try {
     const events = ical.parseICS(ical_data);
