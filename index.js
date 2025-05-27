@@ -16,7 +16,7 @@ app.post('/parse', async (req, res) => {
         dtstart: event.start || null,
         dtend: event.end || null
       }));
-    res.json(formatted);
+    res.json({ data: formatted });
   } catch (err) {
     res.status(400).json({ error: 'Parse failed', message: err.message });
   }
