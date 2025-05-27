@@ -5,9 +5,9 @@ const app = express();
 app.use(express.json({ limit: '5mb' }));
 
 app.post('/parse', async (req, res) => {
-  const { icalData } = req.body;
+  const { ical_data } = req.body;
   try {
-    const events = ical.parseICS(icalData);
+    const events = ical.parseICS(ical_data);
     const formatted = Object.values(events)
       .filter(event => event.type === 'VEVENT')
       .map(event => ({
